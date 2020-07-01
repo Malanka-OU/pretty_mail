@@ -2,7 +2,8 @@
   <data>
     <template id="assets_backend" name="mail assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                    <script type="text/javascript" src="/pretty_mail/static/src/js/message.js"></script>
+              <script type="text/javascript" src="/pretty_mail/static/src/js/message.js"></script>
+              <link rel="stylesheet" type="text/scss" href="/pretty_mail/static/src/scss/thread.scss"/>
             </xpath>
         </template>
   </data>

@@ -1,0 +1,5 @@
+msgs = self.env['mail.message'].search([])
+for msg in msgs:
+    if msg.author_id.company_id and msg.author_id.name not in ('Xamaam', 'Plivo'):
+        msg.is_outgoing = True
+        print(True)
