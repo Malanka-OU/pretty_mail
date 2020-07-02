@@ -5,7 +5,7 @@
     'author': "Kirill Sudnikovich",
     'website': "https://sntch.dev",
     'category': 'Uncategorized',
-    'version': '13.0.3.0.1',
+    'version': '13.0.4.0.1',
     'depends': [
         'base',
         'mail',
