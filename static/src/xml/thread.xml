@@ -187,6 +187,13 @@
                           <i t-att-class="'o_thread_tooltip o_thread_message_email o_thread_message_email_' + message.getCustomerEmailStatus() + ' fa fa-envelope'" t-att-data-message-id="message.getID()"/>
                       </span>
                       <span t-attf-class="o_thread_icons">
+                        <i class='fa fa-trash o_thread_icon'
+                            id="message_delete"
+                            title="Delete"
+                            role="img"
+                            aria-label="Delete"
+                            t-att-data-message-id="message.getID()"
+                        />
                           <t t-if="thread.hasSeenFeature()" t-call="mail.widget.Thread.Message.SeenIcon"/>
                           <i t-if="options.displayStars and !message.isSystemNotification() and !message.needsModeration()"
                               t-att-class="'fa fa-lg o_thread_icon o_thread_message_star ' + (message.isStarred() ? 'fa-star' : 'fa-star-o')"
