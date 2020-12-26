@@ -6,20 +6,26 @@
               <div class="o_thread_message_core" style="text-align: right">
                   <p t-if="displayAuthorMessages[message.getID()]" class="o_mail_info text-muted">
                       <span t-attf-class="o_thread_icons">
-                          <t t-if="thread.hasSeenFeature()" t-call="mail.widget.Thread.Message.SeenIcon"/>
-                          <i t-if="options.displayStars and !message.isSystemNotification() and !message.needsModeration()"
-                              t-att-class="'fa fa-lg o_thread_icon o_thread_message_star ' + (message.isStarred() ? 'fa-star' : 'fa-star-o')"
-                              t-att-data-message-id="message.getID()" title="Mark as Todo" role="img" aria-label="Mark as Todo"/>
+                        <i class='fa fa-trash o_thread_icon'
+                            id="message_delete"
+                            title="Delete"
+                            role="img"
+                            aria-label="Delete"
+                            t-att-data-message-id="message.getID()"
+                        />
+                        <t t-if="thread.hasSeenFeature()" t-call="mail.widget.Thread.Message.SeenIcon"/>
+                        <i t-if="options.displayStars and !message.isSystemNotification() and !message.needsModeration()"
+                            t-att-class="'fa fa-lg o_thread_icon o_thread_message_star ' + (message.isStarred() ? 'fa-star' : 'fa-star-o')"
+                            t-att-data-message-id="message.getID()" title="Mark as Todo" role="img" aria-label="Mark as Todo"/>
                         <i t-if="message.isLinkedToDocumentThread() and options.displayReplyIcons"
                             class="fa fa-reply o_thread_icon o_thread_message_reply"
                             t-att-data-message-id="message.getID()" title="Reply" role="img" aria-label="Reply"/>
-                          <i t-if="message.isNeedaction() and options.displayMarkAsRead"
+                        <i t-if="message.isNeedaction() and options.displayMarkAsRead"
                             class="fa fa-check o_thread_icon o_thread_message_needaction"
                             t-att-data-message-id="message.getID()" title="Mark as Read" role="img" aria-label="Mark as Read"/>
-
-                          <t t-if="message.needsModeration() and message.originatesFromChannel()">
-                              <t t-call="mail.MessageModeration"/>
-                          </t>
+                        <t t-if="message.needsModeration() and message.originatesFromChannel()">
+                            <t t-call="mail.MessageModeration"/>
+                        </t>
                       </span>
                       <input t-if="message.needsModeration() and message.needsModerationByUser() and options.displayModerationCommands" type="checkbox" class="moderation_checkbox" t-att-data-message-id="message.getID()"/>
                       <t t-if="message.isNote()">
