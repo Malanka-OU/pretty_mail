@@ -7,6 +7,7 @@
                   <p t-if="displayAuthorMessages[message.getID()]" class="o_mail_info text-muted">
                       <span t-attf-class="o_thread_icons">
                         <i class='fa fa-trash o_thread_icon'
+                            t-if="message._serverAuthorID[1] != 'ChatBot'"
                             id="message_delete"
                             title="Delete"
                             role="img"
@@ -188,6 +189,7 @@
                       </span>
                       <span t-attf-class="o_thread_icons">
                         <i class='fa fa-trash o_thread_icon'
+                            t-if="message._serverAuthorID[1] != 'ChatBot'"
                             id="message_delete"
                             title="Delete"
                             role="img"
