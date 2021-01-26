@@ -13,7 +13,8 @@ class MailMessage(models.Model):
         res = super(MailMessage, self).create(vals)
         users_as_incoming = self.env['res.config.settings']._get_incoming_users().mapped('partner_id')
         for msg in res:
-            if msg.author_id.company_id and not msg.author_id in users_as_incoming:
+            user = self.env['res.users'].search([('partner_id', '=', msg.author_id.id)])
+            if user and not msg.author_id in users_as_incoming:
                 msg.is_outgoing = True
         return res
 
